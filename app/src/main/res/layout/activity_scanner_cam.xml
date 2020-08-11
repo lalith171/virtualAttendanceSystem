@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".scannerCam">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="250sp"
+            android:layout_gravity="center_vertical"
+            android:padding="20sp">
+            <TableRow
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Student Details"
+                    android:textSize="28sp"
+                    android:fontFamily="sans-serif-light"
+                    android:textFontWeight="900"
+                    />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="Student Name"
+                    android:textSize="18sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textFontWeight="900"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:textSize="18sp"
+                    android:text="Steven Jose Fernandes"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="SAP ID"
+                    android:textSize="18sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textFontWeight="900"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:textSize="18sp"
+                    android:text="70611019008"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="Address"
+                    android:textSize="18sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textFontWeight="900"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:textSize="18sp"
+                    android:text="Stays at Home BAKA "/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="Course"
+                    android:textSize="18sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textFontWeight="900"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:textSize="18sp"
+                    android:text="MCA"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="Click here to Scan ->"
+                    android:textSize="18sp"
+                    android:fontFamily="sans-serif-medium"
+                    />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Open Cam"
+                    android:textSize="18sp"
+                    android:layout_weight="4"
+                    />
+            </TableRow>
+        </TableLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="180sp"
+            android:layout_weight="1"
+            android:layout_marginTop="0sp"
+            android:layout_marginBottom="0sp"
+            android:layout_marginLeft="50sp"
+            android:layout_marginRight="50sp"
+            android:contentDescription="Image for future scans"
+            app:srcCompat="@android:drawable/ic_menu_camera" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        >
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send for Verify"
+
+            />
+    </LinearLayout>
+</LinearLayout>
