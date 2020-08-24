@@ -14,7 +14,9 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_gravity="center"
-        android:layout_margin="15sp"
+
+        android:layout_margin="25sp"
+        android:id="@+id/table"
         >
 
         <TableRow>
@@ -50,7 +52,7 @@
         </TableRow>
         <TableRow>
             <EditText
-                android:id="@+id/editPwd"
+                android:id="@+id/editPass"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="35sp"
                 android:layout_marginTop="15sp"
@@ -62,7 +64,7 @@
                 android:textColor="@color/colorFont"
                 android:textColorHint="@color/colorFont"
                 android:hint="Enter Password"
-                android:inputType="textPersonName" />
+                android:inputType="textPassword" />
         </TableRow>
         <TableRow>
             <Button

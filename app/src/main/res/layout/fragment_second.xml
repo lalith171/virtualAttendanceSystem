@@ -26,7 +26,6 @@
                 android:textSize="36sp"/>
         </TableRow>
         <TableRow>
-
             <TextView
                 android:id="@+id/textView2"
                 android:layout_height="wrap_content"
@@ -108,7 +107,7 @@
                 android:layout_weight="2"
                 android:padding="7sp"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:inputType="textPassword"
                 android:hint="Enter Password"
                 android:background="@color/colorInputs"
                 android:textColor="@color/colorFont"
@@ -171,6 +170,7 @@
                 android:textSize="14sp" />
 
             <RadioGroup
+                android:id="@+id/gender"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_weight="2"

@@ -4,4 +4,10 @@
     <string name="open">open</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="wrongname">Please Enter Name</string>
+    <string name="wrongsapid">Please Enter Sap Id</string>
+    <string name="wrongemail">Please Enter Correct Email</string>
+    <string name="password">Enter Proper Password</string>
+    <string name="pass">Password should be of 7 Digits</string>
+    <string name="wrongconfrimpass">Password Did Not Matched</string>
 </resources>
