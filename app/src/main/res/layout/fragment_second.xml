@@ -64,13 +64,14 @@
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:text="Email Address" />
+
             <EditText
                 android:id="@+id/editEA"
-                android:layout_weight="2"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:ems="10"
-                android:inputType="textPersonName"
                 android:hint="Enter current address"
+                android:inputType="textPersonName"
                 android:textSize="14sp" />
         </TableRow>
         <TableRow>
@@ -86,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:inputType="textPassword"
                 android:hint="Enter Password"
                 android:textSize="14sp" />
         </TableRow>
@@ -103,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:inputType="textPassword"
                 android:hint="Re-enter Password"
                 android:textSize="14sp" />
         </TableRow>
@@ -132,26 +133,26 @@
                 android:textSize="20sp" />
 
             <RadioGroup
+                android:id="@+id/gender"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_weight="2"
-                >
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/radioButton3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Male"
                     android:layout_weight="1"
+                    android:text="Male"
                     android:textSize="14sp" />
 
                 <RadioButton
                     android:id="@+id/radioButton2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
                     android:layout_weight="1"
-                    android:text="Female"/>
+                    android:text="Female"
+                    android:textSize="14sp" />
             </RadioGroup>
         </TableRow>
         <TableRow>

@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     ViewPager pager;
     TabLayout mTabLayout;
-    TabItem first,second;
+    TabItem first,second;      // dekh login and reg ka fragment banaya h yeh dekh
     PagerAdapter adapter;
 
     @Override

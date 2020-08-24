@@ -6,14 +6,18 @@
     android:orientation="vertical"
     android:padding="0sp"
     android:paddingTop="0sp"
-    tools:context=".firstFragment">
+
+    tools:context=".firstFragment"
+    android:id="@+id/first">
 
 
     <TableLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_gravity="center"
-        android:layout_margin="25sp">
+
+        android:layout_margin="25sp"
+        android:id="@+id/table">
 
         <TableRow>
 
@@ -40,17 +44,21 @@
                 android:hint="Enter Username"
                 android:inputType="textPersonName" />
         </TableRow>
+
         <TableRow>
             <EditText
-                android:id="@+id/editPwd"
+                android:id="@+id/editPass"
                 android:layout_height="wrap_content"
                 android:layout_margin="35dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="129dp"
+                android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="Enter Password"
-                android:inputType="textPersonName" />
+                android:inputType="textPassword" />
         </TableRow>
+
+        <TableRow/>//which one is uars???? Mine what??? this marked code might be uars or mine this is your bro ??text edit ?lol wait
 
         <TableRow>
 
