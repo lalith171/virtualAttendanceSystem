@@ -9,9 +9,12 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Layout;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -33,6 +36,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         Toolbar toolbar=findViewById(R.id.toolbar);   //androidx toolbar
         setSupportActionBar(toolbar);
+
+        Button btn = (Button) findViewById(R.id.button1);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), scannerCam.class);
+                startActivity(i);
+            }
+        });
 
       pager=findViewById(R.id.viewpager);
         mTabLayout=findViewById(R.id.tablayout);
@@ -74,13 +86,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
     }
 
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-        if(item.getItemId()==R.id.mhome){
-            Toast.makeText(this,"Home Button is Clicked",Toast.LENGTH_SHORT).show();
+        Intent i = null;
+        switch (item.getItemId()){
+            case R.id.mhome:
+                Toast.makeText(this,"Home Button is Clicked",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.mAttd:
+                i = new Intent(getApplicationContext(), AttendanceTable.class);
+                break;
+            case R.id.mTable:
+                break;
+            case R.id.mProf:
+                i = new Intent(getApplicationContext(), profilePage.class);
+                break;
+            case R.id.mSupp:
+                i = new Intent(getApplicationContext(), supportPage.class);
+                break;
+            case R.id.mScan:
+                i = new Intent(getApplicationContext(), scannerCam.class);
+                break;
         }
+        startActivity(i);
         return false;
     }
 }

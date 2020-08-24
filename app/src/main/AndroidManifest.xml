@@ -10,12 +10,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".scannerCam"/>
+        <activity android:name=".profilePage"></activity>
+        <activity android:name=".supportPage" />
+        <activity android:name=".mainHome" />
+        <activity android:name=".scannerCam" />
         <activity android:name=".AttendanceTable" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
