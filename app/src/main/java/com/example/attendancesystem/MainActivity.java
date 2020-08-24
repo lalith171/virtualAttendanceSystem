@@ -27,49 +27,40 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     ViewPager pager;
     TabLayout mTabLayout;
-    TabItem first,second;      // dekh login and reg ka fragment banaya h yeh dekh
+    TabItem first, second;      // dekh login and reg ka fragment banaya h yeh dekh
     PagerAdapter adapter;
+    Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar=findViewById(R.id.toolbar);   //androidx toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);   //androidx toolbar
         setSupportActionBar(toolbar);
 
-        Button btn = (Button) findViewById(R.id.button1);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), scannerCam.class);
-                startActivity(i);
-            }
-        });
+        pager = findViewById(R.id.viewpager);
+        mTabLayout = findViewById(R.id.tablayout);
 
-      pager=findViewById(R.id.viewpager);
-        mTabLayout=findViewById(R.id.tablayout);
+        first = findViewById(R.id.firstitem);
+        second = findViewById(R.id.seconditem);
 
-       first=findViewById(R.id.firstitem);
-       second=findViewById(R.id.seconditem);
+        drawerLayout = findViewById(R.id.drawer);
+        navigationView = findViewById(R.id.nav_view);
 
-
-        drawerLayout=findViewById(R.id.drawer);
-        navigationView=findViewById(R.id.nav_view);
-
-        toggle=new ActionBarDrawerToggle(this,drawerLayout, toolbar,R.string.open,R.string.close );
+        toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
 
         drawerLayout.addDrawerListener(toggle);
         toggle.setDrawerIndicatorEnabled(true);
         toggle.syncState();
 
-        adapter=new PagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,mTabLayout.getTabCount());
+        adapter = new PagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, mTabLayout.getTabCount());
         pager.setAdapter(adapter);
 
 
         mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-              pager.setCurrentItem(tab.getPosition());
+                pager.setCurrentItem(tab.getPosition());
             }
 
             @Override
@@ -89,9 +80,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Intent i = null;
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.mhome:
-                Toast.makeText(this,"Home Button is Clicked",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Home Button is Clicked", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.mAttd:
                 i = new Intent(getApplicationContext(), AttendanceTable.class);

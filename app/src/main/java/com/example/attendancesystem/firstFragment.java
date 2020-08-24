@@ -34,7 +34,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class firstFragment extends Fragment {
 
-    EditText memail,mpass;
+    EditText memail, mpass;
     Button mlog;
     TextView forgotPassword;
     FirebaseAuth fAuth;
@@ -85,56 +85,45 @@ public class firstFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
 
-                                 Bundle savedInstanceState) {
-            // Inflate the layout for this fragment
-            signinview= inflater.inflate(R.layout.fragment_first, container, false);
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        signinview = inflater.inflate(R.layout.fragment_first, container, false);
 
-        signinManager=getActivity().getSupportFragmentManager();
-        memail=(EditText)signinview.findViewById(R.id.editLogin);
-        forgotPassword=(TextView)signinview.findViewById(R.id.textView9);
-        mpass=(EditText)signinview.findViewById(R.id.editPass);
-        mlog=(Button)signinview.findViewById(R.id.button);
-        fAuth=FirebaseAuth.getInstance();
+        signinManager = getActivity().getSupportFragmentManager();
+        memail = (EditText) signinview.findViewById(R.id.editLogin);
+        forgotPassword = (TextView) signinview.findViewById(R.id.textView9);
+        mpass = (EditText) signinview.findViewById(R.id.editPass);
+        mlog = (Button) signinview.findViewById(R.id.button);
+        fAuth = FirebaseAuth.getInstance();
 
         mlog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 String email = memail.getText().toString().trim();
                 String password = mpass.getText().toString().trim();
-
-                if(TextUtils.isEmpty(email)){
+                if (TextUtils.isEmpty(email)) {
                     memail.setError("Email is Required.");
                     return;
                 }
-
-                if(TextUtils.isEmpty(password)){
+                if (TextUtils.isEmpty(password)) {
                     mpass.setError("Email is Required.");
                     return;
                 }
-
-                if(password.length()<6){
+                if (password.length() < 6) {
                     mpass.setError("Password Should be 6 Character and more");
                     return;
                 }
-                if(TextUtils.isEmpty(email)&&TextUtils.isEmpty(password))
-                {
+                if (TextUtils.isEmpty(email) && TextUtils.isEmpty(password)) {
                     memail.setError("Email is Required.");
                     mpass.setError("Password is Required.");
-
-
-
                 }
-
-
-                fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             Toast.makeText(getActivity(), "Logged in Successfully !!", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getContext(),HomePage.class));
-                        }
-                        else {
+                            startActivity(new Intent(getContext(), HomePage.class));
+                        } else {
                             Toast.makeText(getActivity(), "Password Incorrect !!", Toast.LENGTH_SHORT).show();
                         }
 
@@ -149,7 +138,7 @@ public class firstFragment extends Fragment {
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final EditText resetMail= new EditText(view.getContext());
+                final EditText resetMail = new EditText(view.getContext());
                 AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(view.getContext());// for dialog box
                 passwordResetDialog.setTitle("Password bhul gaya kyaa?");
                 passwordResetDialog.setMessage("Idhar email id daal aur reset maar");
@@ -158,16 +147,16 @@ public class firstFragment extends Fragment {
                 passwordResetDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        String mail =resetMail.getText().toString();
+                        String mail = resetMail.getText().toString();
                         fAuth.sendPasswordResetEmail(mail).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                Toast.makeText(getActivity(),"Reset Link Sent To Your Email",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "Reset Link Sent To Your Email", Toast.LENGTH_SHORT).show();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(getActivity(),"Error ! Reset Link is Not Sent",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "Error ! Reset Link is Not Sent", Toast.LENGTH_SHORT).show();
                             }
                         });
                     }
@@ -183,6 +172,6 @@ public class firstFragment extends Fragment {
                 passwordResetDialog.create().show(); //get the email
             }
         });
-         return  signinview;
-        }
+        return signinview;
+    }
 }

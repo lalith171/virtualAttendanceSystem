@@ -13,8 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".HomePage"></activity>
-        <activity android:name=".profilePage"></activity>
+        <activity android:name=".HomePage"/>
+        <activity android:name=".profilePage"/>
         <activity android:name=".supportPage" />
         <activity android:name=".mainHome" />
         <activity android:name=".scannerCam" />

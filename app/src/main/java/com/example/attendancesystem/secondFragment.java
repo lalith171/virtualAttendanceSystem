@@ -37,17 +37,16 @@ import java.util.Map;
 public class secondFragment extends Fragment {
 
     public static final String TAG = "TAG";
-    EditText mfullname,msap,memail,mpass,mconpass,mdob;
+    EditText mfullname, msap, memail, mpass, mconpass, mdob;
     RadioGroup rg;
-    RadioButton  male,female;
-    Button msub,mreset;
+    RadioButton male, female;
+    Button msub, mreset;
     FirebaseAuth fAuth;
     private static View signupview;
     private static FragmentManager signupManager;
     FirebaseFirestore firebaseFirestore;
     String userId;
     RadioButton rb;
-
 
 
     private static final String ARG_PARAM1 = "param1";
@@ -90,33 +89,25 @@ public class secondFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState)
-    {
+                             Bundle savedInstanceState) {
 
 
+        signupview = inflater.inflate(R.layout.fragment_second, null);
 
-        signupview= inflater.inflate(R.layout.fragment_second,null);
+        signupManager = getActivity().getSupportFragmentManager();
 
-        signupManager=getActivity().getSupportFragmentManager();
-
-        mfullname=(EditText)signupview.findViewById(R.id.editName);
-        memail=(EditText)signupview.findViewById(R.id.editEA);
-        msap=(EditText)signupview.findViewById(R.id.editSID);
-        mpass=(EditText)signupview.findViewById(R.id.editCF);
-        mconpass=(EditText)signupview.findViewById(R.id.editCF2);
-        mdob=(EditText)signupview.findViewById(R.id.editDOB);
-        male=(RadioButton)signupview.findViewById(R.id.radioButton3);
-        female=(RadioButton)signupview.findViewById(R.id.radioButton2);
-        rg =(RadioGroup)signupview.findViewById(R.id.gender);
-        msub=(Button)signupview.findViewById(R.id.button1);
-        fAuth=FirebaseAuth.getInstance();
-        firebaseFirestore=FirebaseFirestore.getInstance();
-
-
-
-
-
-
+        mfullname = (EditText) signupview.findViewById(R.id.editName);
+        memail = (EditText) signupview.findViewById(R.id.editEA);
+        msap = (EditText) signupview.findViewById(R.id.editSID);
+        mpass = (EditText) signupview.findViewById(R.id.editCF);
+        mconpass = (EditText) signupview.findViewById(R.id.editCF2);
+        mdob = (EditText) signupview.findViewById(R.id.editDOB);
+        male = (RadioButton) signupview.findViewById(R.id.radioButton3);
+        female = (RadioButton) signupview.findViewById(R.id.radioButton2);
+        rg = (RadioGroup) signupview.findViewById(R.id.gender);
+        msub = (Button) signupview.findViewById(R.id.button1);
+        fAuth = FirebaseAuth.getInstance();
+        firebaseFirestore = FirebaseFirestore.getInstance();
 
 
         msub.setOnClickListener(new View.OnClickListener() {
@@ -127,56 +118,54 @@ public class secondFragment extends Fragment {
                 final String email = memail.getText().toString().trim();
                 String password = mpass.getText().toString().trim();
                 String confpassword = mconpass.getText().toString().trim();
-                final String sap=msap.getText().toString().trim();
-                 final String dob=mdob.getText().toString().trim();
-                 //nai tha ither kuch
+                final String sap = msap.getText().toString().trim();
+                final String dob = mdob.getText().toString().trim();
+                //nai tha ither kuch
 
 
-                final int checkid=rg.getCheckedRadioButtonId();
-                rb=(RadioButton)signupview.findViewById(checkid);
+                final int checkid = rg.getCheckedRadioButtonId();
+                rb = (RadioButton) signupview.findViewById(checkid);
 
 
-
-                if (TextUtils.isEmpty(name)){
+                if (TextUtils.isEmpty(name)) {
                     mfullname.setError("Name is Required.");
                     return;
                 }
-                if(TextUtils.isEmpty(sap)){
+                if (TextUtils.isEmpty(sap)) {
                     msap.setError("Sap Id is Required.");
                     return;
                 }
-                if(TextUtils.isEmpty(email)){
+                if (TextUtils.isEmpty(email)) {
                     memail.setError("Email is Required.");
                     return;
                 }
-                 if(TextUtils.isEmpty(password)){
+                if (TextUtils.isEmpty(password)) {
                     mpass.setError("Password is Required.");
                     return;
                 }
-                if(TextUtils.isEmpty(confpassword)) {
+                if (TextUtils.isEmpty(confpassword)) {
                     mconpass.setError("Please Enter The Confirm Password!!");
                     return;
                 }
-                if(!password.equals(confpassword)) {
+                if (!password.equals(confpassword)) {
                     mconpass.setError("Password not matched");
                     return;
 
 
                 }
-                if(TextUtils.isEmpty(dob))
-                {
+                if (TextUtils.isEmpty(dob)) {
                     mdob.setError("Please Enter The Date");
 
                 }
 
-                if(password.length()<6){
+                if (password.length() < 6) {
                     mpass.setError("Password Should be 6 Character and more");
                     return;
                 }
-               // if(selected_gd == null){
-                 //   Toast.makeText(getActivity(),"Select the gender",Toast.LENGTH_LON1G).show();// isko  ABHI DEKH RUN KART but gender show  nai hoga databse ha pata h but radio grp ka apan shay
+                // if(selected_gd == null){
+                //   Toast.makeText(getActivity(),"Select the gender",Toast.LENGTH_LON1G).show();// isko  ABHI DEKH RUN KART but gender show  nai hoga databse ha pata h but radio grp ka apan shay
                 //}
-                if(TextUtils.isEmpty(name)&&TextUtils.isEmpty(sap)&&TextUtils.isEmpty(email)&&TextUtils.isEmpty(password)&&TextUtils.isEmpty(confpassword)&&TextUtils.isEmpty(dob)) {
+                if (TextUtils.isEmpty(name) && TextUtils.isEmpty(sap) && TextUtils.isEmpty(email) && TextUtils.isEmpty(password) && TextUtils.isEmpty(confpassword) && TextUtils.isEmpty(dob)) {
                     mfullname.setError("Name is Required.");
                     msap.setError("Sap Id is Required.");
                     memail.setError("Email is Required.");
@@ -185,29 +174,26 @@ public class secondFragment extends Fragment {
                     mdob.setError("Please Enter The Date");
 
 
-
                     return;
                 }
 
 
-
-                fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             Toast.makeText(getActivity(), "Register Successfully !!", Toast.LENGTH_SHORT).show();
-                            userId=fAuth.getCurrentUser().getUid();
+                            userId = fAuth.getCurrentUser().getUid();
                             //allow read, write: if request.auth != null;
-                            DocumentReference documentReference =firebaseFirestore.collection("Users").document(userId);
-                            Map<String,Object> user = new HashMap<>();
-                            user.put("Full_name",name);
-                            user.put("Sap_ID",sap);
-                            user.put("Email",email);
-                            user.put("DOB",dob);
-                          //  user.put("Gender",gen);
-                            if(checkid==rb.getId())
-                            {
-                                user.put("Gender is",rb.getText());
+                            DocumentReference documentReference = firebaseFirestore.collection("Users").document(userId);
+                            Map<String, Object> user = new HashMap<>();
+                            user.put("Full_name", name);
+                            user.put("Sap_ID", sap);
+                            user.put("Email", email);
+                            user.put("DOB", dob);
+                            //  user.put("Gender",gen);
+                            if (checkid == rb.getId()) {
+                                user.put("Gender is", rb.getText());
 
                             }
 
@@ -220,11 +206,9 @@ public class secondFragment extends Fragment {
                             });
 
 
-                        }
-                        else {
+                        } else {
                             Toast.makeText(getActivity(), "Register Unsuccessful !!", Toast.LENGTH_SHORT).show();
                         }
-
 
 
                     }
@@ -234,7 +218,6 @@ public class secondFragment extends Fragment {
         });
 
 
-
-       return signupview;
+        return signupview;
     }
 }
