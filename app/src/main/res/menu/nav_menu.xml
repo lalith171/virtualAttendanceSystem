@@ -3,9 +3,20 @@
     <item
         android:id="@+id/mhome"
         android:title="Home" />
-    <item android:title="My Attendance" />
-    <item android:title="Timetable N Marker" />
-    <item android:title="My Profile" />
-    <item android:title="Support" />
+    <item
+        android:id="@+id/mAttd"
+        android:title="My Attendance" />
+    <item
+        android:id="@+id/mTable"
+        android:title="Timetable N Marker" />
+    <item
+        android:id="@+id/mProf"
+        android:title="My Profile" />
+    <item
+        android:id="@+id/mSupp"
+        android:title="Support" />
+    <item
+        android:id="@+id/mScan"
+        android:title="--scanner" />
     <item android:title="Logout" />
 </menu>

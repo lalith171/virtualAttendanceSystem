@@ -13,13 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".HomePage"></activity>
-        <activity android:name=".scannerCam"></activity>
+        <activity android:name=".HomePage"/>
+        <activity android:name=".profilePage"/>
+        <activity android:name=".supportPage" />
+        <activity android:name=".mainHome" />
+        <activity android:name=".scannerCam" />
         <activity android:name=".AttendanceTable" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -9,7 +9,7 @@
         android:id="@+id/toolbar"
         android:layout_width="413dp"
         android:layout_height="63dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/colorFG"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -18,8 +18,9 @@
         android:id="@+id/tablayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        android:layout_marginHorizontal="20sp"
+        android:layout_marginTop="25sp"
+        android:background="@color/colorPrimary"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         tools:layout_editor_absoluteX="-16dp">
 
@@ -27,12 +28,16 @@
             android:id="@+id/firstitem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login" />
+            android:layout_margin="1dp"
+            android:text="Login"
+            android:background="@color/colorFG"/>
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/seconditem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@color/colorFG"
+            android:layout_margin="1dp"
             android:text="Registration" />
 
     </com.google.android.material.tabs.TabLayout>
@@ -41,9 +46,8 @@
         android:id="@+id/viewpager"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="140sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

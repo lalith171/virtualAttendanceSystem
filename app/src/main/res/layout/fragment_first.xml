@@ -6,9 +6,8 @@
     android:orientation="vertical"
     android:padding="0sp"
     android:paddingTop="0sp"
-
-    tools:context=".firstFragment"
-    android:id="@+id/first">
+    android:background="@color/colorBG"
+    tools:context=".firstFragment">
 
 
     <TableLayout
@@ -17,7 +16,8 @@
         android:layout_gravity="center"
 
         android:layout_margin="25sp"
-        android:id="@+id/table">
+        android:id="@+id/table"
+        >
 
         <TableRow>
 
@@ -27,58 +27,65 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:text="NMIMS LOGIN FORM"
+                android:textColor="@color/colorFont"
+                android:text="Login..."
                 android:textAlignment="center"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                android:textStyle="italic"/>
         </TableRow>
 
         <TableRow>
             <EditText
                 android:id="@+id/editLogin"
                 android:layout_height="wrap_content"
-                android:layout_margin="35dp"
-                android:layout_marginTop="129dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginHorizontal="35dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginBottom="15dp"
+                android:padding="10sp"
                 android:layout_weight="1"
                 android:ems="10"
+                android:background="@color/colorInputs"
+                android:textColor="@color/colorFont"
+                android:textColorHint="@color/colorFont"
                 android:hint="Enter Username"
                 android:inputType="textPersonName" />
         </TableRow>
-
         <TableRow>
             <EditText
                 android:id="@+id/editPass"
                 android:layout_height="wrap_content"
-                android:layout_margin="35dp"
-                android:layout_marginTop="129dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginHorizontal="35sp"
+                android:layout_marginTop="15sp"
+                android:layout_marginBottom="50sp"
+                android:padding="10sp"
                 android:layout_weight="1"
                 android:ems="10"
+                android:background="@color/colorInputs"
+                android:textColor="@color/colorFont"
+                android:textColorHint="@color/colorFont"
                 android:hint="Enter Password"
                 android:inputType="textPassword" />
         </TableRow>
-
-        <TableRow/>//which one is uars???? Mine what??? this marked code might be uars or mine this is your bro ??text edit ?lol wait
-
         <TableRow>
-
             <Button
                 android:id="@+id/button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginHorizontal="35sp"
+                android:background="@color/colorFG"
+                android:textColor="#fff"
                 android:text="Submit" />
         </TableRow>
-
         <TableRow>
-
             <TextView
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:text="Forgot Password?"
-                android:textColor="@color/colorPrimary" />
+                android:padding="10sp"
+                android:textColor="@color/colorFont"
+                android:text="Forgot Password?" />
         </TableRow>
     </TableLayout>
 </RelativeLayout>
